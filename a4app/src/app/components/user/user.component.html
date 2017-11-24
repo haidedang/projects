@@ -1,0 +1,35 @@
+<p>{{name}}
+</p>
+
+<ul>
+  <!-- Assigning Object Attributes DOM Element by {{instancevariableName}} -->
+  <button (click)="example(hobby.value)">test</button>
+  <li> Age: {{age}}</li>
+  <li> Email: {{email}}</li>
+  <li> {{adress.street}} {{adress.city}}, {{adress.state}}</li>
+  <li> {{hobbies[0]}}</li>
+  <li> {{hobbies[1]}}</li>
+</ul>
+
+<!-- Defining Event Handler by (event) -->
+<button (click) ="onClick()">Click Me</button>
+
+<form (submit)=" addHobby(hobby.value)">
+  <div>
+    <label for = "hobby"> Hobby:</label>
+    <!-- input value wird als hobby variable gespeichert, globa l in dem DOM node tree verfügbar -->
+    <input type ="text" #hobby>
+  </div>
+</form>
+
+<ul>
+  <li *ngFor="let hobby of hobbies; let i = index">
+
+    {{i+1}}: {{hobby}} <button (click)="deleteEntry(hobby)">x</button> </li>
+</ul>
+
+<h1>Posts</h1>
+<div *ngFor="let post of posts">
+  <h4>{{post.title}}</h4>
+  <p>{{post.body}}</p>
+</div>
